@@ -16,25 +16,50 @@
             <div class="card articlecontainer" data_id={{id}}>
                 <div class="card-body">
                     <h5 class="card-title">
-                        <img class="icon" src="/assets/images/arrow-55.png" />
-                        Smashing article
+                        <img class="icon" src="/assets/images/arrow-55.png" /> <b> {{title}}</b>
                     </h5>
                     <div class="card-text">
-                        <a href={{link}}>
-                            <b> {{title}}</b>
-                        </a>
+                       
                     </div>
                     <div class="card-footer">
-                        <a href={{link}}><button type="button" class="btn btn-light viewURL" data_id={{id}} type="btn">open</button></a>
-                        <button type="button" class="btn btn-light leavecomment" data_id={{id}} type="btn">comment</button>
+                        <a href={{link}}>
+                            <button type="button" class="btn btn-danger viewURL articlebutton" data_id={{id}} type="btn"><img src="/assets/images/view.png"></button>
+                        </a>
+                        <button type="button" class='btn btn-danger leavecomment articlebutton' data-toggle="modal" data-target="#modal1" data_id={{id}}><img src="/assets/images/comments.png"></button>
                     </div>
                 </div>
             </div>
             {{/each}}
 
         </div>
-        {{!-- <div id="sidearticlecontainer" class="col-sm-6">
-            
-            <iframe id="iframe1" name="iframe1"></iframe>
-        </div> --}}
     </div>
+</div>
+
+<div id="modal1" class="modal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New comment</h5>
+                <button id="closemodal" type="button" class="close closemodal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">title:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Content:</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="closemodal" type="button" class="btn btn-secondary closemodal" data-dismiss="modal">Close</button>
+                <button id="postcomment" type="button" class="btn btn-primary">Save comment</button>
+            </div>
+        </div>
+    </div>
+</div>

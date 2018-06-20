@@ -4,8 +4,19 @@ $.get("/scrape", function(req,res){
         console.log(res)  
 })
 
-// $(".viewURL").click('click',function(event){
-//     console.log($(this).attr('data_link'))
-//     $("#iframe1").attr("src",$(this).attr('data_link'))
-//     $("#iframe1").
-// })
+$(".leavecomment").click('click',function(event){
+      var modal = $("#modal1")//.modal('show')
+    modal.show()
+})
+
+
+$(".closemodal").click('click',function(event){
+    var modal = $("#modal1")//.modal('show')
+  modal.hide()
+})
+
+
+$("#postcomment").click('click',function(event){
+    var modal = $("#modal1")//.modal('show')
+  modal.hide()
+})
