@@ -1,16 +1,40 @@
-<h1 class="center-text">Articles from smashing magazine</h1>
-<div class="row">
-    <div id="uneaten" class="col-sm-8">
-        <div class="container">
-            <h2>Design and Development articles</h2>
-            <ul>
-                {{#each Articles}} 
-                <li data_id={{id}}><a href={{link}}> {{title}}</a>
-                    <button class="comment" data_id={{id}} type="btn">comment!</button>
-                </li>
-                {{/each}}
-                
-            </ul>
+<div id="mainheader">
+    <div class="row">
+        <div class="mast col-sm-5">
+            <img id="smashimage" src="https://wearemarvellous.com/app/uploads/2016/04/clea-up-week.png" alt="Smashing Magazine Logo"
+            />
+        </div>
+        <div class="mast col-sm-7">
+            <h2>Articles from smashing magazine - Design and Development articles</h2>
+
         </div>
     </div>
-</div>
+
+    <div class="row">
+        <div id="mainarticlecontainer" class="col-sm-12">
+            {{#each Articles}}
+            <div class="card articlecontainer" data_id={{id}}>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <img class="icon" src="/assets/images/arrow-55.png" />
+                        Smashing article
+                    </h5>
+                    <div class="card-text">
+                        <a href={{link}}>
+                            <b> {{title}}</b>
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <a href={{link}}><button type="button" class="btn btn-light viewURL" data_id={{id}} type="btn">open</button></a>
+                        <button type="button" class="btn btn-light leavecomment" data_id={{id}} type="btn">comment</button>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+
+        </div>
+        {{!-- <div id="sidearticlecontainer" class="col-sm-6">
+            
+            <iframe id="iframe1" name="iframe1"></iframe>
+        </div> --}}
+    </div>
