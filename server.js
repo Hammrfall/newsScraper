@@ -33,7 +33,9 @@ mongoose.connect(MONGODB_URI);
 // Routes
 app.get('/', function (req, res) {
   db.Article.find({})
+  .populate('note')
     .then(function (data) {
+      console.log(data[0])
       var hbsObject = {
         Articles: data
       };
@@ -81,7 +83,7 @@ app.get("/articles/:id", function (req, res) {
   db.Article.findOne({
       _id: req.params.id
     })
-    .populate("note")
+    .populate("Note")
     .then(function (dbArticle) {
       res.json(dbArticle);
     })
@@ -92,13 +94,13 @@ app.get("/articles/:id", function (req, res) {
 
 
 app.post("/articles/:id", function (req, res) {
-
+  console.log("post request received" + req.body)
   db.Note.create(req.body)
     .then(function (dbNote) {
       return db.Article.findOneAndUpdate({
         _id: req.params.id
-      }, {
-        note: dbNote._id
+      }, {"$push":{
+        note: dbNote._id}
       }, {
         new: true
       });
@@ -112,3 +114,4 @@ app.post("/articles/:id", function (req, res) {
 app.listen(PORT, function () {
   console.log("App running on port " + PORT + "!");
 });
+
