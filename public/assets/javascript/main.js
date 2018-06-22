@@ -28,4 +28,5 @@ $("#postcomment").click('click', function (event) {
     })
     var modal = $("#modal1") //.modal('show')
     modal.hide()
+    location.reload(true);
 })

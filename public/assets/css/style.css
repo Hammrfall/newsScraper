@@ -7,8 +7,16 @@ h2 {
     color: orangered;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: left;
-    text-shadow: 2px 2px #333333;
-    
+    text-shadow: 2px 2px #333333; 
+}
+
+#commentheader {
+    color: white;
+}
+
+.commenticon {
+    float: left;
+    margin-right: 5px;
 }
 
 .mast {

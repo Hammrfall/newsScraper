@@ -34,10 +34,10 @@
                     </div>
                 </div>
                 <div id="commentcontainer" class="container">
-                    <h4>Comments:</h4>
+                    <h4 id="commentheader">Comments:</h4>
                     {{#each note}}
                     <div class="comments">
-                        <p><b>{{title}} :</b> {{body}}</p>
+                        <img class="commenticon" src="/assets/images/comments.png"><p><b>{{title}} :</b> {{body}}</p>
                     </div>
                     {{/each}}
                 </div>
