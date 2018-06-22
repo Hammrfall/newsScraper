@@ -64,7 +64,7 @@ app.get("/scrape", function (req, res) {
         db.Article.create(result)
         .then(function (dbArticle) {})
         .catch(function (err) {
-          return res.json(err);
+          //return res.json(err);
         });
 
       })
@@ -85,10 +85,10 @@ app.get("/articles", function (req, res) {
 
   db.Article.find({})
     .then(function (dbArticle) {
-      res.json(dbArticle);
+     // res.json(dbArticle);
     })
     .catch(function (err) {
-      res.json(err);
+      //res.json(err);
     });
 });
 
@@ -98,10 +98,10 @@ app.get("/articles/:id", function (req, res) {
     })
     .populate("note")
     .then(function (dbArticle) {
-      res.json(dbArticle);
+      //res.json(dbArticle);
     })
     .catch(function (err) {
-      res.json(err);
+     // res.json(err);
     });
 });
 
@@ -119,7 +119,7 @@ app.post("/articles/:id", function (req, res) {
     })
     .then(function (dbArticle) {})
     .catch(function (err) {
-      res.json(err);
+     // res.json(err);
     });
 });
 
