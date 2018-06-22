@@ -29,7 +29,7 @@
                             </button>
                         </a>
                         <button type="button" class='btn btn-danger leavecomment articlebutton' data-toggle="modal" data-target="#modal1" data_id={{id}}>
-                            <img src="/assets/images/comments.png">
+                            <img src="/assets/images/newcomment.png">
                         </button>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                     <h4 id="commentheader">Comments:</h4>
                     {{#each note}}
                     <div class="comments">
-                        <img class="commenticon" src="/assets/images/comments.png"><p><b>{{title}} :</b> {{body}}</p>
+                        <img class="commenticon" src="/assets/images/comments.png"><p><b>{{title}} :</b> {{body}}</p><img class="deletecommenticon" data_id={{id}} src="/assets/images/delete.png" /><br><hr>
                     </div>
                     {{/each}}
                 </div>

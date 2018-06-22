@@ -83,7 +83,7 @@ app.get("/articles/:id", function (req, res) {
   db.Article.findOne({
       _id: req.params.id
     })
-    .populate("Note")
+    .populate("note")
     .then(function (dbArticle) {
       res.json(dbArticle);
     })
@@ -110,6 +110,13 @@ app.post("/articles/:id", function (req, res) {
       res.json(err);
     });
 });
+
+app.delete("/deletecomment/:id", function (req,res) {
+  db.Note.findByIdAndRemove(req.params.id,(err, comment) => {  
+    // As always, handle any potential errors:
+    if (err) return res.status(500).send(err);
+    });
+})
 
 app.listen(PORT, function () {
   console.log("App running on port " + PORT + "!");

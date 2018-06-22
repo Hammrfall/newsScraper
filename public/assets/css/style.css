@@ -19,6 +19,11 @@ h2 {
     margin-right: 5px;
 }
 
+.deletecommenticon {
+    float: right;
+    margin-left: 5px;
+}
+
 .mast {
     padding: 60px;
 }
@@ -69,7 +74,7 @@ h2 {
     align-self: right;
 }
 #smashimage {
-    width: 260px;
+    width: 250px;
     border-radius: 8px;
 }
 
@@ -80,3 +85,8 @@ a {
 a:hover {
     color: orangered;
 }
+
+.deletecommenticon:hover{
+    cursor: pointer;
+}
+

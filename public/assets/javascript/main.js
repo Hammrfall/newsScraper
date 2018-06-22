@@ -24,9 +24,20 @@ $("#postcomment").click('click', function (event) {
     body: $("#notebody").val().trim()
   }
   $.post(queryString, noteData)
-    .then(function (response) {
-    })
-    var modal = $("#modal1") //.modal('show')
-    modal.hide()
-    location.reload(true);
+    .then(function (response) {})
+  var modal = $("#modal1") //.modal('show')
+  modal.hide()
+  location.reload(true);
+})
+
+$(".deletecommenticon").click('click', function (event) {
+  var queryString = "/deletecomment/" + $(this).attr('data_id')
+  $.ajax({
+    url: queryString,
+    method: "DELETE"
+  }).then(function (response) {
+    console.log(response)
+  })
+  location.reload(true);
+
 })
