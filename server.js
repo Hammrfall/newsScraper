@@ -35,7 +35,6 @@ app.get('/', function (req, res) {
   db.Article.find({})
   .populate('note')
     .then(function (data) {
-      console.log(data[0])
       var hbsObject = {
         Articles: data
       };
@@ -56,12 +55,26 @@ app.get("/scrape", function (req, res) {
         .children("a")
         .text();
       result.link = "https://www.smashingmagazine.com" + $(this).children("a").attr("href");
-
-      db.Article.create(result)
+      // ***********************************************
+      axios.get(result.link).then(function (res){
+        var $$ = cheerio.load(res.data);
+        console.log("The new axios code ran")
+        result.summary = $$(".article__summary").text()
+        
+        db.Article.create(result)
         .then(function (dbArticle) {})
         .catch(function (err) {
           return res.json(err);
         });
+
+      })
+
+      //************************************************* */
+      // db.Article.create(result)
+      //   .then(function (dbArticle) {})
+      //   .catch(function (err) {
+      //     return res.json(err);
+      //   });
     });
     res.send("Scrape Complete");
   });
@@ -94,7 +107,6 @@ app.get("/articles/:id", function (req, res) {
 
 
 app.post("/articles/:id", function (req, res) {
-  console.log("post request received" + req.body)
   db.Note.create(req.body)
     .then(function (dbNote) {
       return db.Article.findOneAndUpdate({

@@ -17,7 +17,6 @@ $(".closemodal").click('click', function (event) {
 
 
 $("#postcomment").click('click', function (event) {
-  console.log("postcomment ran with " + $(this).attr('data_id'))
   var queryString = '/articles/' + $(this).attr('data_id')
   var noteData = {
     title: $("#notetitle").val().trim(),
@@ -36,7 +35,7 @@ $(".deletecommenticon").click('click', function (event) {
     url: queryString,
     method: "DELETE"
   }).then(function (response) {
-    console.log(response)
+
   })
   location.reload(true);
 

@@ -4,7 +4,6 @@ var ArticleSchema = new Schema({
 
   title: {
     type: String,
-    required: true,
     unique : true, 
     required : true, 
     dropDups: true 
@@ -12,10 +11,14 @@ var ArticleSchema = new Schema({
 
   link: {
     type: String,
-    required: true,
     unique : true, 
     required : true, 
     dropDups: true 
+  },
+
+  summary: {
+    type: String,
+    required: false, 
   },
 
   note: [{
